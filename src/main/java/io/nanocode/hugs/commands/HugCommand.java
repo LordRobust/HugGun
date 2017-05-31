@@ -19,7 +19,7 @@ public class HugCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(commandSender instanceof Player) {
             Player p = (Player) commandSender;
-            p.getInventory().addItem(new ItemStack(Material.getMaterial(main.getConfig().getInt("item-id")), 1));
+            p.getInventory().addItem(new ItemStack(Material.getMaterial(main.item_id), 1));
         }
 
         return true;

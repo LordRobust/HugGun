@@ -8,6 +8,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.entity.Snowball;
@@ -26,11 +27,16 @@ import java.util.List;
 
 public class Main extends JavaPlugin implements Listener {
 
+    public int cooldown;
+    public int item_id;
+
     public List<String> cooldowns = new ArrayList<>();
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        cooldown = getConfig().getInt("cooldown");
+        item_id = getConfig().getInt("item-id");
 
         getServer().getPluginManager().registerEvents(this, this);
         registerCommands();
@@ -48,9 +54,7 @@ public class Main extends JavaPlugin implements Listener {
     @EventHandler
     public void onEntityInteractEvent(PlayerInteractEvent event) {
         Player p = event.getPlayer();
-        if (p.getInventory().getItemInMainHand().getType() == Material.getMaterial(getConfig().getInt("item-id")) && (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)) {
-            int cooldown = getConfig().getInt("cooldown");
-
+        if (p.getInventory().getItemInMainHand().getType() == Material.getMaterial(item_id) && (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)) {
             if (cooldowns.contains(p.getUniqueId().toString())) {
                 p.sendMessage(ChatColor.RED + "[" + ChatColor.BOLD + "!" + ChatColor.RESET + ChatColor.RED.toString() + "] " + "You must wait " + cooldown + " seconds before firing the hug gun!");
             } else {
