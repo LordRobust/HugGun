@@ -1,0 +1,6 @@
+# ID of hug item:
+item-id: 369
+
+# Cooldown between firing hearts <3
+# In seconds
+cooldown: 2

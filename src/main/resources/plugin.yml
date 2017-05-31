@@ -1,0 +1,8 @@
+name: Hugs
+author: nanocode
+main: io.nanocode.hugs.Main
+version: ${project.version}
+commands:
+     huggun:
+         description: Lots of hugs!
+         usage: /<command>
