@@ -1,6 +1,6 @@
 # HugGun
 
-Download: https://ci.indices.io/guestAuth/repository/download/HugGun_Build/latest.lastSuccessful/Hugs-1.0-SNAPSHOT.jar
+[Download](https://ci.indices.io/guestAuth/repository/download/HugGun_Build/latest.lastSuccessful/Hugs-1.0-SNAPSHOT.jar)
 
 Minecraft plugin to spread the love. Pretty cool for lobbies.
 
